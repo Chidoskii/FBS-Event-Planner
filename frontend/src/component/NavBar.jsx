@@ -1,5 +1,10 @@
+import { Link } from "react-router-dom";
+
 import "../css/navbar.css";
 import logo from "../assets/fbs-32x32.png";
+import LandingPage from "../pages/LandingPage";
+import Events from "../pages/EventsPage";
+import SignInPage from "../pages/SignInPage";
 
 function NavBar() {
   return (
@@ -14,9 +19,15 @@ function NavBar() {
 
         <nav className="navbar-links flex">
           <div className="navlinks-can flex">
-            <a href="#home">Home</a>
-            <a href="#events">Events</a>
-            <a href="#signin">Members</a>
+            <Link to="/" element={<LandingPage />}>
+              Home
+            </Link>
+            <Link to="/events" element={<Events />}>
+              Events
+            </Link>
+            <Link to="/signin" element={<SignInPage />}>
+              Sign In
+            </Link>
           </div>
         </nav>
       </div>

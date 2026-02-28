@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+.sign-up-section {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.sign-up-contents {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mailer-form {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+.mailer-form-field {
+  display: flex;
+}
+
+.mailer-fname-field,
+.mailer-lname-field,
+.mailer-email-field {
+  width: 30%;
+  min-width: 150px;
+}

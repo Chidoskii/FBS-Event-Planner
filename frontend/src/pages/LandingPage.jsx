@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-import NavBar from "../component/NavBar";
 import "../css/landing.css";
 
 export default function LandingPage() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
@@ -27,115 +28,62 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="page">
-      <NavBar />
-      <main>
-        <section className="section hero">
-          <div className="container heroGrid"></div>
-        </section>
-
-        {/* SIGNUP (IMPORTANT) */}
-        <section id="signup" className="section">
-          <div className="container">
-            <h2 className="h2">Get future event listings</h2>
-            <p className="subtext">
-              Be the first to know when new events are posted.
-            </p>
-
-            <form className="form" onSubmit={handleSignup}>
-              <label className="srOnly" htmlFor="email">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="you@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <button
-                className="btn"
-                type="submit"
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? "Signing up..." : "Sign up"}
-              </button>
-            </form>
-
-            {status === "success" && (
-              <p className="status success">Great, you're on the list!</p>
-            )}
-            {status === "error" && (
-              <p className="status error">Something went wrong. Try again.</p>
-            )}
+    <section id="signup" className="sign-up-section flex section">
+      <p className="subtext">
+        Be the first to know when new events are posted.
+      </p>
+      <div className="sign-up-contents flex">
+        <form className="mailer-form" onSubmit={handleSignup}>
+          <div className="mailer-form-field">
+            <label className="mailer-fname-field" htmlFor="fname">
+              First Name
+            </label>
+            <input
+              id="fname"
+              type="text"
+              placeholder="Flash"
+              value={firstName}
+              required
+            />
           </div>
-        </section>
-
-        <section id="general-info" className="section">
-          <div className="container">GENERAL INFO</div>
-        </section>
-
-        {/* EVENTS PLACEHOLDER */}
-        <section id="events" className="section">
-          <div className="container">
-            <div className="sectionHeader">
-              <div>
-                <h2 className="h2">Featured events</h2>
-                <p className="subtext">
-                  This is a placeholder section for your listings.
-                </p>
-              </div>
-              <button
-                className="btn ghost"
-                type="button"
-                onClick={() => alert("Later: route to /events")}
-              >
-                View all
-              </button>
-            </div>
-
-            <div className="eventsGrid">
-              {[1].map((i) => (
-                <article key={i} className="eventCard">
-                  <div className="eventMeta">
-                    <span className="pill">Upcoming</span>
-                    <span className="muted">Sat • 6:00 PM</span>
-                  </div>
-                  <h3 className="eventTitle">Event Title Placeholder</h3>
-                  <p className="muted">
-                    Short description preview goes here. Keep it to 1–2 lines.
-                  </p>
-                  <div className="eventFooter">
-                    <span className="muted">Cerritos, CA</span>
-                    <button
-                      className="btn small"
-                      type="button"
-                      onClick={() => alert("Later: RSVP flow")}
-                    >
-                      RSVP
-                    </button>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <div className="mailer-form-field">
+            <label className="mailer-lname-field" htmlFor="lname">
+              Last Name
+            </label>
+            <input
+              id="lname"
+              type="text"
+              placeholder="Gordon"
+              value={lastName}
+              required
+            />
           </div>
-        </section>
-      </main>
-
-      <footer className="footer">
-        <div className="container footerInner">
-          <span className="muted">© {new Date().getFullYear()} FBS Events</span>
-          <div className="footerLinks">
-            <a className="muted" href="#signup">
-              Sign up
-            </a>
-            <a className="muted" href="#events">
-              Events
-            </a>
+          <div className="mailer-form-field">
+            <label className="mailer-email-field" htmlFor="email">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
-        </div>
-      </footer>
-    </div>
+
+          <button className="btn" type="submit" disabled={status === "loading"}>
+            {status === "loading" ? "Signing up..." : "Sign up"}
+          </button>
+        </form>
+
+        {status === "success" && (
+          <p className="status success">Great, you're on the list!</p>
+        )}
+        {status === "error" && (
+          <p className="status error">Something went wrong. Try again.</p>
+        )}
+      </div>
+    </section>
   );
 }
