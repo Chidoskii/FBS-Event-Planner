@@ -21,6 +21,8 @@ export default function LandingPage() {
 
       await new Promise((r) => setTimeout(r, 500)); // fake success
       setStatus("success");
+      setFirstName("");
+      setLastName("");
       setEmail("");
     } catch (err) {
       setStatus("error");
@@ -43,6 +45,7 @@ export default function LandingPage() {
               type="text"
               placeholder="Flash"
               value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               required
             />
           </div>
@@ -55,6 +58,7 @@ export default function LandingPage() {
               type="text"
               placeholder="Gordon"
               value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               required
             />
           </div>
