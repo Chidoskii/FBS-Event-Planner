@@ -3,28 +3,53 @@ import React, { useState } from "react";
 import "../css/landing.css";
 
 export default function LandingPage() {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
+  function capitalize(value) {
+    if (!value) return "";
+    return value
+      .toLowerCase()
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
   async function handleSignup(e) {
     e.preventDefault();
 
-    if (!email.trim()) return;
+    const payload = {
+      firstName: capitalize(firstName),
+      lastName: capitalize(lastName),
+      email: email.trim(),
+      source: "Web App",
+    };
+
+    if (!payload.email) return;
 
     try {
       setStatus("loading");
 
-      // TODO: replace with your API call
-      // await fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }) });
+      const res = await fetch(`${API_BASE_URL}/api/mailer/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-      await new Promise((r) => setTimeout(r, 500)); // fake success
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(data?.message || "Signup failed");
+      }
+
       setStatus("success");
       setFirstName("");
       setLastName("");
       setEmail("");
     } catch (err) {
+      console.error(err);
       setStatus("error");
     }
   }

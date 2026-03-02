@@ -6,6 +6,17 @@ const eventRoutes = require("./routes/events");
 
 const app = express();
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // Vite dev
+      "https://fbsevents.com", // production frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: false, // true only if using cookies
+  }),
+);
+
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
@@ -14,10 +25,6 @@ app.use((req, res, next) => {
 
 app.use("/api/mailer", mailerRoutes);
 app.use("/api/events", eventRoutes);
-
-app.get("/", (req, res) => {
-  res.json({ mssg: "if you see this, then you are talking to me." });
-});
 
 const { pool } = require("./db");
 
