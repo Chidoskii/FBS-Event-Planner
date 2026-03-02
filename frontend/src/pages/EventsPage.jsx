@@ -22,6 +22,8 @@ function EventsPage() {
           alt=""
         />
       </p>
+      <br />
+      <br />
     </div>
   );
 }

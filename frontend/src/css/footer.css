@@ -1,10 +1,8 @@
 footer {
-  position: fixed; /* keep if you want it always visible */
-  left: 0;
-  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center; /* center the inner container */
+  border-top: 1px solid #f5f5f5;
   padding: 8px 12px;
   z-index: 1000;
 }
