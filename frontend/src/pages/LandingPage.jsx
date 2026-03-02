@@ -85,7 +85,7 @@ export default function LandingPage() {
               type="submit"
               disabled={status === "loading"}
             >
-              {status === "loading" ? "Signing up..." : "Sign up"}
+              {status === "loading" ? "Signing up..." : "Join Guest List"}
             </button>
           </div>
         </form>
