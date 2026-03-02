@@ -19,6 +19,8 @@
 }
 .mailer-form-field {
   display: flex;
+  padding: 10px;
+  justify-content: space-around;
 }
 
 .mailer-fname-field,
@@ -26,4 +28,8 @@
 .mailer-email-field {
   width: 30%;
   min-width: 150px;
+}
+
+.guest-list-submit-btn {
+  width: 25%;
 }

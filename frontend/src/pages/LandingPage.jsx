@@ -31,9 +31,12 @@ export default function LandingPage() {
 
   return (
     <section id="signup" className="sign-up-section flex section">
+      <br />
       <p className="subtext">
         Be the first to know when new events are posted.
       </p>
+      <br />
+      <br />
       <div className="sign-up-contents flex">
         <form className="mailer-form" onSubmit={handleSignup}>
           <div className="mailer-form-field">
@@ -76,9 +79,15 @@ export default function LandingPage() {
             />
           </div>
 
-          <button className="btn" type="submit" disabled={status === "loading"}>
-            {status === "loading" ? "Signing up..." : "Sign up"}
-          </button>
+          <div className="mailer-form-field">
+            <button
+              className="btn guest-list-submit-btn"
+              type="submit"
+              disabled={status === "loading"}
+            >
+              {status === "loading" ? "Signing up..." : "Sign up"}
+            </button>
+          </div>
         </form>
 
         {status === "success" && (
