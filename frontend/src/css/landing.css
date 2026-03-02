@@ -17,17 +17,21 @@
 
 /* form container */
 .mailer-form {
+  color: #f5f5f5;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 560px; /* keeps it nice on desktop */
+  padding: 10px;
+  max-width: 415px; /* keeps it nice on desktop */
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
 }
 
 /* each row of fields */
 .mailer-form-field {
   display: flex;
   gap: 12px;
-  padding: 10px;
+  margin: 10px;
   justify-content: center;
   flex-wrap: wrap; /* KEY: allow wrap instead of overflow */
 }
@@ -36,7 +40,8 @@
 .mailer-fname-field,
 .mailer-lname-field,
 .mailer-email-field {
-  flex: 1 1 160px; /* grow, shrink, minimum basis */
+  text-align: left;
+  flex: 1 1 100px; /* grow, shrink, minimum basis */
   min-width: 0; /* KEY: allow shrinking */
   width: auto;
 }
@@ -44,14 +49,21 @@
 /* button */
 .guest-list-submit-btn {
   width: 100%;
+  height: 40px;
   max-width: 220px;
   align-self: center;
+  padding: 0 10px;
+  border: 1px solid #f5f5f5;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.event-post-pic {
+  width: 300px;
 }
 
 /* MOBILE: stack fields full width */
 @media (max-width: 640px) {
   .mailer-form-field {
-    flex-direction: column;
     align-items: stretch;
   }
 
@@ -59,11 +71,12 @@
   .mailer-lname-field,
   .mailer-email-field {
     flex: 1 1 auto;
-    width: 100%;
+    min-width: 90px;
   }
 
   .guest-list-submit-btn {
-    width: 100%;
+    width: 50%;
     max-width: 100%;
+    min-width: 75px;
   }
 }

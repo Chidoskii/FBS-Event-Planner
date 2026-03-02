@@ -10,12 +10,14 @@ function NavBar() {
   return (
     <header className="navbarcan">
       <div className="navbar-content-can flex flex-row justify-between">
-        <div className="brand-can flex flex-row ">
-          <div className="logo" aria-hidden="true">
-            <img src={logo} alt="fbs-logo" />
+        <Link to="/" element={<LandingPage />}>
+          <div className="brand-can flex flex-row ">
+            <div className="logo" aria-hidden="true">
+              <img src={logo} alt="fbs-logo" />
+            </div>
+            <span className="brandText">Events</span>
           </div>
-          <span className="brandText">Events</span>
-        </div>
+        </Link>
 
         <nav className="navbar-links flex">
           <div className="navlinks-can flex">
