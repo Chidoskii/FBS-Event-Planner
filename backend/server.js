@@ -13,9 +13,13 @@ app.use(
       "https://fbsevents.com", // production frontend
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: false, // true only if using cookies
   }),
 );
+
+// IMPORTANT: respond to preflight
+app.options(/.*/, cors());
 
 app.use(express.json());
 app.use((req, res, next) => {
