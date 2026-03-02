@@ -19,6 +19,22 @@ app.get("/", (req, res) => {
   res.json({ mssg: "if you see this, then you are talking to me." });
 });
 
+const { pool } = require("./db");
+
+app.get("/debug/db", async (req, res) => {
+  try {
+    const [rows] = await pool.query("SELECT 1 AS ok");
+    res.json({ ok: true, rows });
+  } catch (err) {
+    console.error("DB DEBUG ERROR:", err);
+    res.status(500).json({
+      ok: false,
+      code: err.code,
+      message: err.sqlMessage || err.message,
+    });
+  }
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`);
 });
