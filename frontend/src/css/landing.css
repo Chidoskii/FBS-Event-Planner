@@ -1,35 +1,69 @@
 @import "tailwindcss";
 
 .sign-up-section {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding: 16px 12px; /* helps on small screens */
 }
 
 .sign-up-contents {
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
+/* form container */
 .mailer-form {
   display: flex;
   flex-direction: column;
-  width: 45%;
-}
-.mailer-form-field {
-  display: flex;
-  padding: 10px;
-  justify-content: space-around;
+  width: 100%;
+  max-width: 560px; /* keeps it nice on desktop */
 }
 
+/* each row of fields */
+.mailer-form-field {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  justify-content: center;
+  flex-wrap: wrap; /* KEY: allow wrap instead of overflow */
+}
+
+/* inputs/field wrappers */
 .mailer-fname-field,
 .mailer-lname-field,
 .mailer-email-field {
-  width: 30%;
-  min-width: 150px;
+  flex: 1 1 160px; /* grow, shrink, minimum basis */
+  min-width: 0; /* KEY: allow shrinking */
+  width: auto;
 }
 
+/* button */
 .guest-list-submit-btn {
-  width: 25%;
+  width: 100%;
+  max-width: 220px;
+  align-self: center;
+}
+
+/* MOBILE: stack fields full width */
+@media (max-width: 640px) {
+  .mailer-form-field {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mailer-fname-field,
+  .mailer-lname-field,
+  .mailer-email-field {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .guest-list-submit-btn {
+    width: 100%;
+    max-width: 100%;
+  }
 }
