@@ -15,6 +15,10 @@ app.use((req, res, next) => {
 app.use("/api/mailer", mailerRoutes);
 app.use("/api/events", eventRoutes);
 
+app.get("/", (req, res) => {
+  res.json({ mssg: "if you see this, then you are talking to me." });
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`);
 });
