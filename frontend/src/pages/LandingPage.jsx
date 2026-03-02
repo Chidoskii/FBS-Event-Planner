@@ -55,73 +55,88 @@ export default function LandingPage() {
   }
 
   return (
-    <section id="signup" className="sign-up-section flex section">
-      <br />
-      <p className="subtext">
-        Be the first to know when new events are posted.
-      </p>
-      <br />
-      <br />
-      <div className="sign-up-contents flex">
-        <form className="mailer-form" onSubmit={handleSignup}>
-          <div className="mailer-form-field">
-            <label className="mailer-fname-field" htmlFor="fname">
-              First Name
-            </label>
-            <input
-              id="fname"
-              type="text"
-              placeholder="Flash"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mailer-form-field">
-            <label className="mailer-lname-field" htmlFor="lname">
-              Last Name
-            </label>
-            <input
-              id="lname"
-              type="text"
-              placeholder="Gordon"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mailer-form-field">
-            <label className="mailer-email-field" htmlFor="email">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="you@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+    <>
+      <section id="signup" className="sign-up-section flex section">
+        <br />
+        <p className="subtext">
+          Be the first to know when new events are posted!
+        </p>
+        <br />
+        <br />
+        <div className="sign-up-contents flex">
+          <form className="mailer-form" onSubmit={handleSignup}>
+            <div className="mailer-form-field">
+              <label className="mailer-fname-field" htmlFor="fname">
+                First Name
+              </label>
+              <input
+                id="fname"
+                type="text"
+                placeholder="Flash"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mailer-form-field">
+              <label className="mailer-lname-field" htmlFor="lname">
+                Last Name
+              </label>
+              <input
+                id="lname"
+                type="text"
+                placeholder="Gordon"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mailer-form-field">
+              <label className="mailer-email-field" htmlFor="email">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
 
-          <div className="mailer-form-field">
-            <button
-              className="btn guest-list-submit-btn"
-              type="submit"
-              disabled={status === "loading"}
-            >
-              {status === "loading" ? "Signing up..." : "Join Guest List"}
-            </button>
-          </div>
-        </form>
+            <div className="mailer-form-field">
+              <button
+                className="btn guest-list-submit-btn"
+                type="submit"
+                disabled={status === "loading"}
+              >
+                {status === "loading" ? "Signing up..." : "Join Guest List"}
+              </button>
+            </div>
+          </form>
 
-        {status === "success" && (
-          <p className="status success">Great, you're on the list!</p>
-        )}
-        {status === "error" && (
-          <p className="status error">Something went wrong. Try again.</p>
-        )}
-      </div>
-    </section>
+          {status === "success" && (
+            <p className="status success">Great, you're on the list!</p>
+          )}
+          {status === "error" && (
+            <p className="status error">Something went wrong. Try again.</p>
+          )}
+        </div>
+      </section>
+      <section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className="web-contruction-can">
+          This site is under construction.
+        </div>
+      </section>
+    </>
   );
 }

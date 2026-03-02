@@ -61,6 +61,10 @@
   width: 300px;
 }
 
+.web-contruction-can {
+  text-align: center;
+}
+
 /* MOBILE: stack fields full width */
 @media (max-width: 640px) {
   .mailer-form-field {

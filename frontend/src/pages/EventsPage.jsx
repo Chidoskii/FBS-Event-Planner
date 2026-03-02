@@ -5,7 +5,7 @@ function EventsPage() {
       <h1>Upcoming Events</h1>
       <br />
       <h2>
-        <u>Cocktail Soiree - March 28, 2026</u>
+        <u>Cocktail Soiree - March 28, 2026 - STATUS: TBD</u>
       </h2>
       <p>
         Enjoy food, music, and entertainment at this soiree. <br />
