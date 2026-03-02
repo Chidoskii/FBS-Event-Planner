@@ -10,7 +10,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", // Vite dev
-      "https://fbsevents.com", // production frontend
+      "https://www.fbsevents.com", // production frontend
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
