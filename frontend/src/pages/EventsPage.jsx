@@ -1,3 +1,5 @@
+import EventCard from "../component/EventCard";
+
 function EventsPage() {
   return (
     <div className="events-page-can">
@@ -24,6 +26,8 @@ function EventsPage() {
       </p>
       <br />
       <br />
+
+      <EventCard />
     </div>
   );
 }
