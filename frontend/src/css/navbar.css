@@ -9,6 +9,10 @@
 }
 
 .navbar-content-can {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   min-height: 56px;
   align-items: center;
   width: 100%;
@@ -40,11 +44,19 @@
   width: auto;
 }
 
+.navlinks {
+  padding-right: 10px;
+}
+
 .navlinks-can {
   gap: 16px;
   justify-content: flex-end;
   flex-wrap: wrap;
   width: auto;
+}
+
+.signin-page-can {
+  display: none;
 }
 
 @media (max-width: 640px) {

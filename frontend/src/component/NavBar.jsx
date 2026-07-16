@@ -21,13 +21,13 @@ function NavBar() {
 
         <nav className="navbar-links flex">
           <div className="navlinks-can flex">
-            <Link to="/" element={<LandingPage />}>
+            <Link to="/" element={<LandingPage />} className="navlinks">
               Home
             </Link>
-            <Link to="/events" element={<Events />}>
+            <Link to="/events" element={<Events />} className="navlinks">
               Events
             </Link>
-            <Link to="/signin" element={<SignInPage />}>
+            <Link to="/signin" element={<SignInPage />} className="navlinks">
               Sign In
             </Link>
           </div>
