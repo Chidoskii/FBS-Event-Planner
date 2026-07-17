@@ -1,8 +1,16 @@
+import EventCard from "../component/EventCard";
+
 function EventsPage() {
   return (
     <div className="events-page-can">
       <br />
       <h1>Upcoming Events</h1>
+      <h2>
+        <u>Check back later!</u>
+      </h2>
+      <br />
+       <br />
+      <h1>Past Events</h1>
       <br />
       <h2>
         <u>Cocktail Soiree - March 28, 2026 - STATUS: TBD</u>
@@ -24,6 +32,7 @@ function EventsPage() {
       </p>
       <br />
       <br />
+
     </div>
   );
 }
